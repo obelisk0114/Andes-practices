@@ -1,0 +1,43 @@
+#Practice_01
+Create an ant script which contains 10 ant tasks (log, echo, javac, etc…..)
+The default target should be able to fork all tasks that you use
+A log file should be generated after the script executed.
+         
+#Practice_02
+Write a program that the user input an expression, the output marks out the unpaired parentheses. 
+By a "paired parenthesis", it means a left parenthesis "(" matched with the nearest right parenthesis ")".
+For example, (1+2), (1+2)*(2+3), and ((1+2)*3) show paired parenthesis, while (1+2)), ((1+2), and (1+2)*((2+3) do not.
+In the paired cases you don't need to have output, in those unpaired cases above you should label them like this:
+e.g. 
+((A+B)(
+^     ^
+Case 1:
+(1+2))
+     ^
+Case 2:
+((1+2)
+^
+Case 3:
+(1+2) * ((2+3)
+        ^
+Command line output is OK, with GUI representation is better.
+
+#Practice_03
+a. Please create an eclipse plug-in project to design and implement 
+GUI can pop/push data from/to a stack or a queue.
+b. (optional)build this plug-in by Maven.
+
+Hint:
+1.  http://www.cmpe.boun.edu.tr/~akin/cmpe223/chap2.htm (Data Structure)
+2.  http://www.eclipse.org/ (Eclipse)
+3.  https://help.eclipse.org/latest/index.jsp (Platform Plug-in Developer Guide)
+Test Environment Information:
+1. Eclipse 
+2. JDK 1.8.x upper
+3. Windows 
+
+#Practice_04
+Please see the attached zip file practice4.zip
+
+##Practice_05
+Please create a VSCode Exension (By #Practice_03)
