@@ -1,0 +1,71 @@
+.wrapper {
+    position: relative;
+    display: block;
+}
+
+.titleLabel {
+    text-align: left;
+}
+
+.main {
+    width: 400px;
+    height: 50px;
+    display: flex;
+    border-style: solid;
+    border-width: 2px; 
+}
+
+.element {
+    width: 30px;
+    height: 40px;
+    margin: 3px;
+    text-align: center;
+    line-height: 38px;
+    display: inline-block;
+    border-style: solid;
+    border-width: 1px;
+
+    font-size: 18px;
+}
+
+.inputClass {
+    width: 80px;
+    height: 30px;
+    margin: 10px;
+    display: inline-block;
+    font-size: 16px;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    background-color: rgba(239, 239, 239, 0.3);
+}
+
+.buttonWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.buttonClass {
+    width: 80px;
+    height: 40px;
+    margin: 10px;
+
+    font-size: 14px;
+    background-color: aquamarine;
+    color: black;
+}
+
+.buttonClass2 {
+    width: 80px;
+    height: 40px;
+    margin: 10px;
+
+    font-size: 14px;
+    background-color: azure;
+    color: black;
+}

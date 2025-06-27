@@ -18,6 +18,8 @@ export function activate(context: vscode.ExtensionContext) {
 		// Display a message box to the user
 		vscode.window.showInformationMessage('Hello World from Practice_05!');
 
+		const extensionUri = context.extensionUri;
+
 		// Create and show a new webview
 		const panel = vscode.window.createWebviewPanel(
 			"catCoding", // Identifies the type of the webview. Used internally
@@ -29,93 +31,28 @@ export function activate(context: vscode.ExtensionContext) {
 		);
 
 		// And set its HTML content
-		panel.webview.html = getWebviewContent();
+		panel.webview.html = getWebviewContent(panel, extensionUri);
 	});
 
 	context.subscriptions.push(disposable);
 }
 
-function getWebviewContent() {
+function getWebviewContent(
+	panel: vscode.WebviewPanel,
+	extensionUri: vscode.Uri,
+) {
+	const styleMainUri = panel.webview.asWebviewUri(
+		vscode.Uri.joinPath(extensionUri, "src", "static", "main.css")
+	);
+
 	return `<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Cat Coding</title>
+	<title>Stack-Queue-Data-Structure</title>
 
-	<style>
-	    .wrapper {
-	       position: relative;
-		   display: block;
-	    }
-
-	    .titleLabel {
-	       text-align: left;
-	    }
-
-		.main {
-		   width: 400px;
-		   height: 50px;
-		   display: flex;
-		   border-style: solid;
-		   border-width: 2px; 
-		}
-
-		.element {
-		   width: 30px;
-		   height: 40px;
-		   margin: 3px;
-		   text-align: center;
-		   line-height: 38px;
-		   display: inline-block;
-		   border-style: solid;
-		   border-width: 1px;
-
-		   font-size: 18px;
-		}
-
-		.inputClass {
-		   width: 80px;
-		   height: 30px;
-		   margin: 10px;
-		   display: inline-block;
-		   font-size: 16px;
-		}
-
-		button {
-		   cursor: pointer;
-		}
-
-		button:disabled {
-		   cursor: not-allowed;
-		   background-color: rgba(239, 239, 239, 0.3);
-		}
-
-		.buttonWrapper {
-		   display: flex;
-		   align-items: center;
-		}
-
-		.buttonClass {
-		   width: 80px;
-		   height: 40px;
-		   margin: 10px;
-
-		   font-size: 14px;
-		   background-color: aquamarine;
-		   color: black;
-		}
-
-		.buttonClass2 {
-		   width: 80px;
-		   height: 40px;
-		   margin: 10px;
-
-		   font-size: 14px;
-		   background-color: azure;
-		   color: black;
-		}
-    </style>
+	<link rel="stylesheet" type="text/css" href="${styleMainUri}">
 </head>
 <body>
 	<div class="wrapper">
