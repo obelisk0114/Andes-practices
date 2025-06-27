@@ -97,7 +97,7 @@ public class Practice_04 {
         return res;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Practice_04 practice_04 = new Practice_04();
 
         // int P1 = 3;
@@ -116,8 +116,8 @@ public class Practice_04 {
         // int res2 = practice_04.minimumNumberOfPresses(P2, K2, L2, frequency2);
         // System.out.println(res2);
 
-        // String filePath = "C:\\Users\\TCC\\Downloads\\practice4\\A-small-practice.in";
-        String filePath = "C:\\Users\\TCC\\Downloads\\practice4\\A-large-practice.in";
+        // String filePath = "./practice4/A-small-practice.in";
+        String filePath = "./practice4/A-large-practice.in";
         List<InputPairs> readInput = practice_04.readFile(filePath);
         for (int i = 0; i < readInput.size(); i++) {
             InputPairs cur = readInput.get(i);
