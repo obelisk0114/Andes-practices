@@ -44,6 +44,7 @@ function getWebviewContent(
 	panel: vscode.WebviewPanel,
 	extensionUri: vscode.Uri,
 ) {
+	const webview = panel.webview;
 	const styleMainUri = panel.webview.asWebviewUri(
 		vscode.Uri.joinPath(extensionUri, "src", "static", "main.css")
 	);
@@ -59,6 +60,7 @@ function getWebviewContent(
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src ${webview.cspSource}; script-src 'nonce-${nonce}';">
 	<title>Stack-Queue-Data-Structure</title>
 
 	<link rel="stylesheet" type="text/css" href="${styleMainUri}">
