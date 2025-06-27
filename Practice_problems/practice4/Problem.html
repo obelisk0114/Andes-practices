@@ -1,0 +1,403 @@
+ <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">  <html lang="zh-TW">   <head> <meta content="text/html; charset=utf-8" http-equiv="Content-Type"> <style type="text/css">
+
+
+/* default css */
+
+table {
+  font-size: 1em;
+  line-height: inherit;
+}
+
+
+tr {
+  
+  text-align: left;
+  
+}
+
+
+div, address, ol, ul, li, option, select { 
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+p {
+  margin: 0px;
+}
+
+body {
+  margin: 6px;
+  padding: 0px;
+  font-family: Verdana, sans-serif;
+  font-size: 10pt;
+  background-color: #ffffff;
+}
+
+
+img {
+  -moz-force-broken-image-icon: 1;
+}
+
+@media screen {
+  html.pageview {
+    background-color: #f3f3f3 !important;
+  }
+
+  
+    
+  body { 
+    min-height: 1100px; 
+  }
+  * html body { 
+    height: 1100px; 
+  }
+  .pageview body {
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 2px solid #bbb;
+    border-bottom: 2px solid #bbb;
+    width: 648px !important;
+    margin: 15px auto 25px;
+    padding: 40px 50px; 
+  }
+  /* IE6 */
+  * html.pageview body {
+    overflow-x: auto;
+  }
+  /* Prevent repaint errors when scrolling in Safari. This "Star-7" css hack
+     targets Safari 3.1, but not WebKit nightlies and presumably Safari 4.
+     That's OK because this bug is fixed in WebKit nightlies/Safari 4 :-). */
+  html*#wys_frame::before {
+    content: '\A0';
+    position: fixed;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+  }
+  
+  
+
+  
+
+}
+
+h6 { font-size: 10pt }
+h5 { font-size: 11pt }
+h4 { font-size: 12pt }
+h3 { font-size: 13pt }
+h2 { font-size: 14pt }
+h1 { font-size: 16pt }
+
+blockquote {padding: 10px; border: 1px #DDD dashed }
+
+a img {border: 0}
+
+.pb {height: 1px}
+
+div.google_header, div.google_footer {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+
+/* Table of contents */
+.editor div.writely-toc {
+  background-color: #f3f3f3;
+  border: 1px solid #ccc;
+}
+.writely-toc > ol {
+  padding-left: 3em;
+  font-weight: bold;
+}
+ol.writely-toc-subheading {
+  padding-left: 1em;
+  font-weight: normal;
+}
+/* IE6 only */
+* html writely-toc ol {
+  list-style-position: inside;
+}
+.writely-toc-none {
+  list-style-type: none;
+}
+.writely-toc-decimal {
+  list-style-type: decimal;
+}
+.writely-toc-upper-alpha {
+  list-style-type: upper-alpha;
+}
+.writely-toc-lower-alpha {
+  list-style-type: lower-alpha;
+}
+.writely-toc-upper-roman {
+  list-style-type: upper-roman;
+}
+.writely-toc-lower-roman {
+  list-style-type: lower-roman;
+}
+.writely-toc-disc {
+  list-style-type: disc;
+}
+
+/* end default css */
+
+
+  /* default print css */
+  
+  @media print {
+    body { 
+      padding: 0; 
+      margin: 0; 
+    }
+
+    div.google_header, div.google_footer {
+      display: block;
+      min-height: 0;
+      border: none;
+    }
+
+    div.google_header {
+      flow: static(header);
+    }
+
+    /* used to insert page numbers */
+    div.google_header::before, div.google_footer::before {
+      position: absolute;
+      top: 0;
+    }
+
+    div.google_footer {
+      flow: static(footer);
+    }
+
+    /* always consider this element at the start of the doc */
+    div#google_footer {
+      flow: static(footer, start);
+    }
+
+    span.google_pagenumber {
+      content: counter(page);
+    }
+
+    span.google_pagecount {
+      content: counter(pages);
+    }
+
+    /* Table of contents */
+    #WritelyTableOfContents a::after {
+      content: leader('.') target-counter(attr(href), page);
+    }
+
+    #WritelyTableOfContents a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  @page {
+    @top {
+      content: flow(header);
+    }
+    @bottom {
+      content: flow(footer);
+    }
+  }
+  /* end default print css */
+ 
+
+/* custom css */
+
+
+/* end custom css */
+
+
+
+  /* ui edited css */
+  
+  body {
+    font-family: Verdana;
+    
+    font-size: 10.0pt;
+    line-height: normal;
+    background-color: #ffffff;
+  }
+  /* end ui edited css */
+
+
+
+/* editor CSS */
+.editor a:visited {color: #551A8B}
+.editor table.zeroBorder {border: 1px dotted gray}
+.editor table.zeroBorder td {border: 1px dotted gray}
+.editor table.zeroBorder th {border: 1px dotted gray}
+
+
+.editor div.google_header, .editor div.google_footer {
+  border: 2px #DDDDDD dashed;
+  position: static;
+  width: 100%;
+  min-height: 2em;
+}
+
+.editor .misspell {background-color: yellow}
+
+
+.editor .pb {
+  border-top: 1px dashed #C0C0C0; 
+  border-bottom: 1px dashed #C0C0C0
+}
+.editor .writely-comment {
+  font-size: 9pt; 
+  line-height: 1.4; 
+  padding: 1px; 
+  border: 1px dashed #C0C0C0
+}
+
+
+/* end editor CSS */
+</style>   <base target="_top">  </head>  <body  revision="ah6b26cqx5xr_75dnmt6kgz:9">      <h1 class=problem-item id=khja>
+  Text Messaging
+</h1>
+<h3 class=problem-item id=y18b>
+  The story
+</h3>
+<p id=khja0>
+  Professor Loony, a dear friend of mine, stormed into my office. His face was
+  red and he looked very angry. The first thing that came out of his mouth was
+  "Damn those phone manufacturers. I was trying to send a text message, and it
+  took me more than ten minutes to type a one-line message." I tried to calm him
+  down. "But what is wrong? Why did it take you so long?" He continued, "Don't
+  you see?! Their placement of the letters is so messed up? Why is 's' the 4th
+  letter on its key? and 'e'? Why is it not the first letter on its key? I have
+  to press '7' FOUR times to type an 's'? This is lunacy!"
+</p>
+<p id=khja1>
+  "Calm down, my friend," I said, "This scheme has been in use for so long, even
+  before text messaging was invented. They had to keep it that way."
+</p>
+<p id=khja2>
+  "That's not an excuse," his face growing redder and redder. "It is time to
+  change all this. It was a stupid idea to start with. And while we are at it,
+  how come they only put letters on 8 keys? Why not use all 12? And why do they
+  have to be consecutive?"
+</p>
+<p id=khja3>
+  "Umm... I... don't... know," I replied.
+</p>
+<p id=khja4>
+  "Ok, that's it. Those people are clearly incompetent. I am sure someone can
+  come up with a better scheme."
+</p>
+<p id=khja5>
+  He was one of <i id=khja6>those</i> people, I could see. People who complain
+  about the problem, but never actually try to solve it.
+</p>
+<p id=khja7>
+  In this problem, you are required to come up with the best letter placement of
+  keys to minimize the number of key presses required to type a message. You
+  will be given the number of keys, the maximum number of letters we can put on
+  every key, the total number of letters in the alphabet, and the frequency of
+  every letter in the message. Letters can be placed anywhere on the keys and in
+  any order. Each letter can only appear on one key. Also, the alphabet can have
+  more than 26 letters (it is not English).
+</p>
+<p id=khja8>
+  For reference, the current phone keypad looks like this<br id=khja9>
+</p>
+<pre id=khja10>key 2: abc<br id=khja11>key 3: def<br id=khja12>key 4: ghi<br id=khja13>key 5: jkl<br id=khja14>key 6: mno<br id=khja15>key 7: pqrs<br id=khja16>key 8: tuv<br id=khja17>key 9: wxyz<br id=khja18></pre>
+The first press of a key types the first letter. Each subsequent press advances
+to the next letter. For example, to type the word "snow", you need to press "7"
+four times, followed by "6" twice, followed by "6" three times, followed by "9"
+once. The total number of key presses is 10.
+<h3 class=problem-item id=khja19>
+  Input
+</h3>
+<p id=khja20>
+  The first line in the input file contains the number of test cases
+  <b id=khja21>N</b>. This is followed by <b id=khja22>N</b> cases. Each case
+  consists of two lines. On the first line we have the maximum number of letters
+  to place on a key (<b id=khja23>P</b>), the number of keys available
+  (<b id=khja24>K</b>) and the number of letters in our alphabet
+  (<b id=khja25>L</b>) all separated by single spaces. The second line has
+  <b id=khja26>L</b> non-negative integers. Each number represents the frequency
+  of a certain letter. The first number is how many times the first letter is
+  used, the second number is how many times the second letter is used, and so
+  on.
+</p>
+<h3 class=problem-item id=khja27>
+  Output
+</h3>
+<p id=khja28>
+  For each case, you should output the following
+</p>
+<pre id=khja29><span id=s_yw style=BACKGROUND-COLOR:#f3f3f3>Case #x: [minimum number of keypad presses]</span><br id=khja30></pre>
+indicating the number of keypad presses to type the message for the optimal
+layout.
+<h3 class=problem-item id=khja31>
+  Limits
+</h3>
+<p id=khja32>
+  <b id=khja33>P</b> * <b id=khja34>K</b> ≥ <b id=khja35>L</b><br id=khja36>
+  0 ≤ The frequency of each letter ≤ 1&nbsp;000&nbsp;000
+</p>
+<h3 class=problem-item id=khja37>
+  Small dataset
+</h3>
+<p id=khja38>
+  1 ≤ <b id=khja39>N</b> ≤ 10<br id=khja40>
+  1 ≤ <b id=khja41>P</b> ≤ 10<br id=khja42>
+  1 ≤ <b id=khja43>K</b> ≤ 12<br id=khja44>
+  1 ≤ <b id=khja45>L</b> ≤ 100<br id=khja46>
+</p>
+<h3 class=problem-item id=khja47>
+  Large dataset
+</h3>
+<p id=khja48>
+  1 ≤ <b id=khja49>N</b> ≤ 100<br id=khja50>
+  1 ≤ <b id=khja51>P</b> ≤ 1&nbsp;000<br id=khja52>
+  1 ≤ <b id=khja53>K</b> ≤ 1&nbsp;000<br id=khja54>
+  1 ≤ <b id=khja55>L</b> ≤ 1&nbsp;000<br id=khja56>
+</p>
+<h3 class=problem-item id=khja57>
+  Sample
+</h3>
+<table id=khja58>
+  <tbody id=khja59>
+  <tr id=khja60 style=BACKGROUND-COLOR:#f3f3f3>
+    <td id=khja61>
+      <br id=khja62>
+      <span class=problem-item-gray id=khja63>Input</span><br id=khja64>
+      &nbsp;
+    </td>
+  </tr>
+  <tr id=khja65 style=BACKGROUND-COLOR:#f3f3f3>
+    <td id=khja66>
+      <code id=khja67>
+2<br id=khja68>
+3 2 6<br id=khja69>
+8 2 5 2 4 9<br id=khja70>
+3 9 26<br id=khja71>
+1 1 1 100 100 1 1 1 1 1 1 1 1 1 1 1 1 10 11 11 11 11 1 1 1 100<br id=khja72>
+<br id=khja73>
+</code>
+    </td>
+  </tr>
+  <tr id=khja74 style=BACKGROUND-COLOR:#f3f3f3>
+    <td id=khja75>
+      <br id=khja76>
+      <span class=problem-item-gray id=khja77>Output</span><br id=khja78>
+      &nbsp;
+    </td>
+  </tr>
+  <tr id=khja79 style=BACKGROUND-COLOR:#f3f3f3>
+    <td id=khja80>
+      <code id=khja81>
+Case #1: 47<br id=khja82>
+Case #2: 397</code>
+    </td>
+  </tr>
+  </tbody>
+</table>
