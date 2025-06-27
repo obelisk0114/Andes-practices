@@ -26,7 +26,10 @@ export function activate(context: vscode.ExtensionContext) {
 			"Stack or Queue", // Title of the panel displayed to the user
 			vscode.ViewColumn.One, // Editor column to show the new webview panel in.
 			{ // Webview options.
-				enableScripts: true
+				enableScripts: true,
+				localResourceRoots: [
+					vscode.Uri.joinPath(extensionUri, "src", "static"),
+				]
 			}
 		);
 
@@ -47,6 +50,9 @@ function getWebviewContent(
 	const scriptUri = panel.webview.asWebviewUri(
 		vscode.Uri.joinPath(extensionUri, "src", "static", "main.js")
 	);
+
+	// Use a nonce to only allow a specific script to be run.
+	const nonce = getNonce();
 
 	return `<!DOCTYPE html>
 <html lang="en">
@@ -79,9 +85,18 @@ function getWebviewContent(
 		</div>
 	</div>
 
-	<script src="${scriptUri}"></script>
+	<script nonce="${nonce}" src="${scriptUri}"></script>
 </body>
 </html>`;
+}
+
+function getNonce() {
+	let text = "";
+	const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	for (let i = 0; i < 32; i++) {
+		text += possible.charAt(Math.floor(Math.random() * possible.length));
+	}
+	return text;
 }
 
 // This method is called when your extension is deactivated
